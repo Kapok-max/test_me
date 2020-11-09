@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="translation.css" rel="stylesheet">
+    <script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="head_box">
+        <div class="head_box_left" >
+            <div class="left1">YIQI Logo</div>
+            <div class="left2">Slogan</div>
+        </div>
+        <div class="head_box_right" >
+            <div class="right1">Hotline:400-</div>
+            <div class="language">
+            <div class="right_CN">CN</div>
+            <div class="right_EN">EN</div>
+            </div>
+        </div>
+    </div>
+     <!-- 第一行结束 -->
+     <div class="list1">
+         
+         <div class="nav">
+         <ul>
+             <li class="nav_item active"><a href="">主页</a></li>
+             <li class="nav_item"><a href="">服务</a></li>
+             <li class="nav_item"><a href="">流程</a></li>
+             <li class="nav_item"><a href="">译员风采</a></li>
+             <li class="nav_item"><a href="">关于我们</a></li>
+        
+         </ul>
+        </div>
+     </div>
+    <!-- 导航栏结束 -->
+    <div class="center_cont">
+    <div class="content_translation">
+        <div class="content_left">
+            <div class="slogan">slogan</div>
+        </div>
+        <div class="content_right"></div>
+    </div>
+    <div class="sidebar">
+       <div class="bar">Chat Box</div>
+       <div class="bar">Hot Line</div>
+       <div class="bar">Wechat</div>
+       <div class="bar">QQ</div>
+    </div>
+</div>
+   <!-- 导航栏下面内容结束 -->
+   <div class="fixed">
+       <div class="fixed_con">一对一服务</div>
+       <div class="fixed_con">快捷</div>
+       <div class="fixed_con">质量</div>
+       <div class="fixed_con">省钱</div>
+   </div>
+   <!-- 中间固定内容结束 -->
+   <!-- <div class="bottom_list">
+     <ul>
+         <li><a href="">关于我们</a></li>
+         <li><a href="">资质</a></li>
+         <li><a href="">译员风采</a></li>
+         <li><a href="">服务</a></li>
+         <li><a href="">Services</a></li>
+     </ul>
+   </div> -->
+   <!-- 底部列表结束 -->
+   
+
+
+
+   <div class="tab-wrap" id="J_tab">
+       <div class="tab-list-content">
+      <ul class="tab-list">
+        <li class="tab-item cur">关于我们</li>
+        <li class="tab-item">资质</li>
+        <li class="tab-item">译员风采</li>
+        <li class="tab-item">服务</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+        <div class="info active">
+            <!-- <p>内容1</p> -->
+           
+                <div class="bottom_left">Photo</div>
+                <div class="bottom_right"></div>
+            
+        </div>
+        <div class="info">内容2</div>
+        <div class="info">内容3</div>
+        <div class="info">内容44444</div>
+    </div>
+</div>
+
+
+
+<script>
+    ;(function($) {
+        var Tab = function(opt) {
+            this.oTab = opt.oTab;
+            this.oTabList = opt.oTabList;
+            this.oTabItem = opt.oTabItem;
+            this.oTabContentInfo = opt.oTabContentInfo;
+        }
+    
+    
+        $.extend(Tab.prototype, {
+            init: function() {
+                this.bindEvent();
+            },
+    
+            bindEvent: function() {
+                this.oTabList.on('click', this.oTabItem, $.proxy(this.tabSlide, this))
+            },
+    
+            tabSlide: function(e) {
+                var e = e || window.event,
+                    tar = e.target || e.srcElement,
+                    curIdx = $(tar).index();
+                //等同于 Array.prototype.indexOf.call(tar.parentNode.children, tar)
+    
+                if (tar.className == 'tab-item') {
+                    $(tar).addClass('cur').siblings('.tab-item').removeClass('cur');
+                    this._pageSlide(curIdx)
+                }
+            },
+    
+            _pageSlide: function(idx) {
+                this.oTabContentInfo.eq(idx).addClass('active').siblings().removeClass('active')
+            }
+        })
+    
+        window.Tab = Tab;
+    
+    })(jQuery);
+    
+    new Tab({
+        oTab: $('#J_tab'),
+        oTabList: $('.tab-list'),
+        oTabItem: $('.tab-item'),
+        oTabContentInfo: $('.info')
+    }).init()
+    </script>
+</body>
+</html>
+
+
+
